@@ -34,8 +34,14 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-        <?php include("insert_form.php"); ?>
-      
+        <div class="jumbotron text-center">
+            <h1 class="display-3">Thank You!</h1>
+            <p class="lead">Your promotional code had beed registered successfully</p>
+            <hr>
+            <p class="lead">
+                <a class="btn btn-primary btn-sm" href="index.php" role="button">Add another one.</a>
+            </p>
+            </div>
         </div>
         <!-- /.container-fluid -->
 
@@ -58,13 +64,22 @@
   </div>
   <!-- End of Page Wrapper -->
 
-  <script>
-        if ( window.history.replaceState ) {
-        window.history.replaceState( null, null, window.location.href );
-        }
-  </script>
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  
 
 
+
+  
+
+
+
+<!-- Page level custom scripts -->
+  <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-pie-demo.js"></script> 
 
 </body>
 

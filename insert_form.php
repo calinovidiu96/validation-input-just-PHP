@@ -1,102 +1,6 @@
 <?php 
-include("user.php");
-include("session.php");
-
-
-$user = new User();
-
-
-$errors = array('name'=>'', 'mobile_number'=>'', 'promotional_code'=>'', 'GDPR'=>'', 'terms'=>'');
-$success = array('success'=> '');
-$error = false;
-$error_promotional = false;
-$code_check = '';
-
-
-
-if(isset($_POST['store'])){
-    if($user){
-        // $user->name = $_POST['name'];
-        // $user->mobile_number = $_POST['mobile_number'];
-        // $user->promotional_code = $_POST['promotional_code'];
-        // $user->GDPR = $_POST['GDPR'];
-        // $user->terms = $_POST['terms'];
-
-        if(empty($_POST['name'])){
-            $errors['name'] = 'Your name is required </br>';
-            $error = true;
-        } else {
-            $user->name = $_POST['name'];
-        }
-
-        if(empty($_POST['mobile_number'])){
-            $errors['mobile_number'] = 'Your mobile number is required </br>';
-            $error = true;
-        } else {
-            $user->mobile_number = $_POST['mobile_number'];
-        }
-
-        if(empty($_POST['promotional_code'])){
-            $errors['promotional_code'] =  'Your promotional code is required </br>';
-            $error = true;
-        } else if (strlen($_POST['promotional_code']) < 8){
-            $errors['promotional_code'] =  'Your promotional code need to be 8 characters. </br>';
-            $error = true;
-        } else if (strlen($_POST['promotional_code']) > 8){
-            $errors['promotional_code'] =  'Your promotional code need to be 8 characters. </br>';
-            $error = true;
-        }
-        else{
-            $user->promotional_code = $_POST['promotional_code'];
-        }
-
-        if(empty($_POST['GDPR'])){
-            $errors['GDPR'] =  'You need to accept GDPR</br>';
-            $error = true;
-        } else {
-            $user->GDPR = $_POST['GDPR'];
-        }
-
-        if(empty($_POST['terms'])){
-            $errors['terms'] =  'You need to accept terms </br>';
-            $error = true;
-        } else {
-            $user->terms = $_POST['terms'];
-        }
-
-
-        $con = mysqli_connect("localhost", "root", "", "voxline2");
-        $query = "SELECT * FROM users WHERE promotional_code = '".mysqli_real_escape_string($con, $_POST['promotional_code'])."'";
-
-        $result = mysqli_query($con, $query);
-        $row_count = mysqli_num_rows($result);
-
-
-        if($row_count > 1){
-            $code_check = "The promotional code is already registered. Please try another one.";
-            $error = true;
-        }
-
-
-
-
-
-        
-  
-
-   
-        if($error === false){
-            $user->create();
-            $success['success'] = 'Your promotional code had beed registered successfully';
-        }
-
-
-    }
-};
-
-
+include('user_functions.php');
 ?>
-
 
 
 <div class="col-xl-12 col-lg-12">
@@ -155,3 +59,4 @@ if(isset($_POST['store'])){
       </div>
     </div>
 </div>
+
