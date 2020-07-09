@@ -1,10 +1,7 @@
 <?php 
 include("user.php");
-include("session.php");
-
 
 $user = new User();
-
 
 $errors = array('name'=>'', 'mobile_number'=>'', 'promotional_code'=>'', 'GDPR'=>'', 'terms'=>'');
 $success = array('success'=> '');
@@ -47,14 +44,14 @@ if(isset($_POST['store'])){
         }
 
         if(empty($_POST['GDPR'])){
-            $errors['GDPR'] =  'You need to accept GDPR</br>';
+            $errors['GDPR'] =  'You need to accept General Data Protection Regulation.</br>';
             $error = true;
         } else {
             $user->GDPR = $_POST['GDPR'];
         }
 
         if(empty($_POST['terms'])){
-            $errors['terms'] =  'You need to accept terms </br>';
+            $errors['terms'] =  'You need to accept terms and conditions.</br>';
             $error = true;
         } else {
             $user->terms = $_POST['terms'];

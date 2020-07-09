@@ -42,7 +42,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `mobile_number`, `promotional_code`, `GDPR`, `terms`) VALUES
-(91, 'John Doe', 1234567890, '0000aaaa', 1, 1);
+(1, 'John Doe', 1234567890, '0000aaaa', 1, 1);
 
 --
 -- Indexes for dumped tables

@@ -39,7 +39,7 @@ include('user_functions.php');
         <div class="form-group">
             <input name="GDPR" value="0" type="hidden">
             <input type="checkbox" name="GDPR" value="1">
-            <label for="GDPR">GDPR accept</label><br>
+            <label for="GDPR">General Data Protection Regulation accept</label><br>
             <div class="text-danger"><?php echo $errors['GDPR']; ?></div> 
         </div>
 
